@@ -1,51 +1,77 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Katrina Wong — Bartender & Beverage Director</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Noto+Serif+TC:wght@200;300;400;500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<title>Katrina Wong — Beverage Consultant & Brand Marketing Specialist</title>
+<meta name="description" content="Katrina Wong is a beverage consultant and brand marketing specialist in Taiwan, working across spirits brand activation, tasting education, cocktail R&D, and digital beverage systems.">
+<meta property="og:title" content="Katrina Wong — Beverage Consultant & Brand Marketing Specialist">
+<meta property="og:description" content="Spirits brand activation, beverage consulting, tasting lectures, cocktail R&D, and Zephyr Mixology bartender workflow tools.">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600&family=Fraunces:opsz,wght,SOFT,WONK@9..144,500..800,20..80,0..1&family=Manrope:wght@400;500;600;700&family=Noto+Serif+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#141210; --bg2:#0f0d0b; --bg3:#1a1714;
-    --line:#2a2520; --line2:#1e1a16;
-    --amber:#bf6b22; --amber-l:#d98a3d;
-    --cream:#f2ece3; --tan:#9c8470; --tan-d:#6a5e52;
-    --mute:#4a403a; --mute-d:#3a322c;
+    --bg:#100b07; --bg2:#17100b; --bg3:#22150d;
+    --line:#3a281d; --line2:#281b13;
+    --amber:#d38a2f; --amber-l:#f0b75f; --gold:#f3ca78;
+    --cream:#f6ead7; --tan:#c0a383; --tan-d:#a58b70;
+    --mute:#72563f; --mute-d:#573f2f;
+    --wood:#2d180e; --brass:#b87b37; --smoke:#090706;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
-  body{background:var(--bg);color:var(--cream);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  body{background:
+    radial-gradient(circle at 18% 8%,rgba(211,138,47,.24),transparent 26%),
+    radial-gradient(circle at 78% 18%,rgba(240,183,95,.13),transparent 24%),
+    linear-gradient(120deg,rgba(45,24,14,.52),transparent 40%),
+    var(--bg);
+    color:var(--cream);font-family:'Manrope','Noto Serif TC',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;position:relative;}
+  body::before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;background:
+    linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px),
+    linear-gradient(0deg,rgba(255,255,255,.018) 1px,transparent 1px);
+    background-size:72px 72px;mask-image:linear-gradient(to bottom,rgba(0,0,0,.65),rgba(0,0,0,.08));}
+  body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at center,transparent 42%,rgba(4,3,2,.72) 100%);}
   ::selection{background:var(--amber);color:#fff;}
 
   /* NAV */
   nav.top{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;
-    padding:22px 40px;mix-blend-mode:difference;}
-  nav.top .brand{font-family:'Playfair Display',serif;font-weight:700;font-size:17px;letter-spacing:.02em;color:#fff;}
+    padding:18px 40px;background:rgba(15,13,11,.82);border-bottom:1px solid rgba(242,236,227,.08);
+    backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 12px 34px rgba(0,0,0,.22);}
+  nav.top .brand{font-family:'Fraunces','Noto Serif TC',serif;font-weight:700;font-size:18px;letter-spacing:.01em;color:#fff;text-shadow:0 0 16px rgba(240,183,95,.18);}
   nav.top .links{display:flex;gap:28px;}
-  nav.top .links a{color:#fff;text-decoration:none;font-size:10px;letter-spacing:.2em;text-transform:uppercase;opacity:.8;transition:opacity .2s;}
-  nav.top .links a:hover{opacity:1;}
-  @media(max-width:720px){nav.top .links{display:none;}}
+  nav.top .links a{font-family:'Barlow Condensed','Manrope',sans-serif;color:var(--cream);text-decoration:none;font-size:13px;letter-spacing:.22em;text-transform:uppercase;opacity:.82;transition:color .2s,opacity .2s,text-shadow .2s;}
+  nav.top .links a:hover{opacity:1;color:var(--gold);text-shadow:0 0 12px rgba(240,183,95,.38);}
+  .lang-toggle{display:flex;gap:6px;align-items:center;}
+  .lang-toggle button{font-family:'Barlow Condensed','Manrope',sans-serif;border:1px solid rgba(242,236,227,.22);background:rgba(255,255,255,.03);color:var(--cream);font-size:13px;letter-spacing:.14em;text-transform:uppercase;padding:6px 9px;border-radius:2px;cursor:pointer;opacity:.72;transition:all .2s;}
+  .lang-toggle button:hover{border-color:rgba(217,138,61,.7);opacity:1;}
+  .lang-toggle button.active{background:var(--cream);border-color:var(--cream);color:#111;opacity:1;}
+  @media(max-width:720px){nav.top{padding:18px 24px;}nav.top .links{display:none;}.lang-toggle button{padding:6px 7px;}}
 
   /* HERO */
-  .hero{min-height:100vh;display:flex;}
+  .hero{min-height:100vh;display:flex;position:relative;overflow:hidden;background:
+    linear-gradient(90deg,rgba(16,11,7,.96) 0%,rgba(16,11,7,.82) 42%,rgba(16,11,7,.72) 100%),
+    url("assets/portfolio/hero-bar.jpg") center/cover no-repeat;}
+  .hero::before{content:"";position:absolute;inset:0;background:
+    radial-gradient(circle at 22% 20%,rgba(240,183,95,.18),transparent 24%),
+    radial-gradient(circle at 82% 64%,rgba(211,138,47,.12),transparent 30%),
+    linear-gradient(180deg,rgba(16,11,7,.05),rgba(16,11,7,.78));pointer-events:none;}
   .hero .left{flex:0 0 56%;display:flex;flex-direction:column;justify-content:center;
-    padding:80px 56px 80px 64px;border-right:1px solid var(--line);position:relative;}
-  .hero .issue{position:absolute;top:40px;left:64px;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--mute);}
-  .hero h1{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(34px,4.6vw,62px);line-height:1.08;position:relative;z-index:1;}
-  .hero h1 .zh{display:block;font-family:'Noto Serif TC',serif;font-weight:500;font-size:clamp(16px,2vw,26px);color:var(--tan);letter-spacing:.12em;margin-bottom:12px;}
-  .hero .rule{width:48px;height:2px;background:var(--amber);margin:28px 0;}
-  .hero .desc{font-size:13px;line-height:1.9;color:var(--tan-d);max-width:360px;font-weight:300;}
-  .hero .bignum{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(120px,15vw,200px);color:#1c1814;line-height:1;position:absolute;bottom:-24px;right:-8px;user-select:none;pointer-events:none;}
-  .hero .right{flex:1;display:flex;flex-direction:column;justify-content:space-between;padding:40px 30px;background:var(--bg2);}
-  .hero .right .lbl{font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--mute-d);text-align:right;}
+    padding:96px 56px 80px 64px;border-right:1px solid rgba(240,183,95,.16);position:relative;z-index:1;}
+  .hero .issue{position:absolute;top:42px;left:64px;font-family:'Barlow Condensed','Manrope',sans-serif;font-size:13px;letter-spacing:.32em;text-transform:uppercase;color:var(--brass);text-shadow:0 0 12px rgba(211,138,47,.28);}
+  .hero h1{font-family:'Fraunces','Noto Serif TC',serif;font-weight:760;font-variation-settings:"SOFT" 38,"WONK" 1;font-size:clamp(42px,6.2vw,86px);line-height:.94;position:relative;z-index:1;letter-spacing:0;}
+  .hero h1 .zh{display:block;font-family:'Noto Serif TC',serif;font-weight:600;font-size:clamp(16px,1.7vw,24px);color:var(--tan);letter-spacing:.1em;margin-bottom:16px;}
+  .hero .rule{width:72px;height:1px;background:linear-gradient(90deg,var(--gold),transparent);margin:32px 0;}
+  .hero .desc{font-size:15px;line-height:1.85;color:var(--tan);max-width:480px;font-weight:500;}
+  .hero .bignum{font-family:'Fraunces',serif;font-weight:800;font-size:clamp(140px,17vw,230px);color:rgba(240,183,95,.055);line-height:1;position:absolute;bottom:-30px;right:-10px;user-select:none;pointer-events:none;}
+  .hero .right{flex:1;display:flex;flex-direction:column;justify-content:space-between;padding:86px 30px 40px;background:rgba(12,8,6,.46);position:relative;z-index:1;}
+  .hero .right .lbl{font-family:'Barlow Condensed','Manrope',sans-serif;font-size:13px;letter-spacing:.34em;text-transform:uppercase;color:var(--brass);text-align:right;}
   .hero .clist{list-style:none;}
   .hero .clist li{padding:15px 0;border-bottom:1px solid var(--line2);display:flex;align-items:baseline;justify-content:space-between;transition:padding .25s;cursor:default;}
   .hero .clist li:hover{padding-left:8px;}
   .hero .clist li:hover .cn{color:var(--amber);}
-  .hero .cn{font-family:'Noto Serif TC',serif;font-size:15px;color:var(--tan);transition:color .2s;}
-  .hero .ce{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute-d);}
-  .hero .foot{font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:var(--mute-d);border-top:1px solid var(--line2);padding-top:14px;}
+  .hero .cn{font-family:'Manrope','Noto Serif TC',sans-serif;font-size:14px;font-weight:600;color:var(--tan);transition:color .2s;}
+  .hero .ce{font-family:'Barlow Condensed','Manrope',sans-serif;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);}
+  .hero .foot{font-family:'Barlow Condensed','Manrope',sans-serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--mute);border-top:1px solid var(--line2);padding-top:14px;}
   @media(max-width:720px){
     .hero{flex-direction:column;}
     .hero .left{flex:none;border-right:none;border-bottom:1px solid var(--line);padding:90px 28px 50px;}
@@ -56,24 +82,37 @@
   /* SECTION SHELL */
   .section{padding:100px 64px;position:relative;}
   @media(max-width:720px){.section{padding:64px 28px;}}
-  .sec-head{display:flex;align-items:baseline;gap:20px;margin-bottom:8px;}
-  .sec-eyebrow{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--amber);}
-  .sec-line{flex:1;height:1px;background:var(--line);}
-  .sec-title{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,46px);font-weight:700;margin-bottom:6px;}
-  .sec-title .zh{font-family:'Noto Serif TC',serif;font-weight:400;color:var(--tan);font-size:.5em;margin-left:14px;letter-spacing:.1em;}
+  .sec-head{display:flex;align-items:baseline;gap:20px;margin-bottom:10px;}
+  .sec-eyebrow{font-family:'Barlow Condensed','Manrope',sans-serif;font-size:14px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);text-shadow:0 0 14px rgba(240,183,95,.22);}
+  .sec-line{flex:1;height:1px;background:linear-gradient(90deg,rgba(240,183,95,.4),rgba(58,40,29,.2));}
+  .sec-title{font-family:'Fraunces','Noto Serif TC',serif;font-size:clamp(30px,4.5vw,58px);font-weight:720;font-variation-settings:"SOFT" 45,"WONK" 1;margin-bottom:6px;letter-spacing:0;}
+  .sec-title .zh{font-family:'Noto Serif TC',serif;font-weight:600;color:var(--tan);font-size:.42em;margin-left:14px;letter-spacing:.08em;}
 
   /* ABOUT */
   #about{background:var(--bg);}
   .about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:60px;margin-top:50px;align-items:start;}
   @media(max-width:720px){.about-grid{grid-template-columns:1fr;gap:32px;}}
-  .about-lead{font-family:'Noto Serif TC',serif;font-weight:300;font-size:clamp(18px,2.4vw,26px);line-height:1.75;color:var(--cream);}
+  .about-lead{font-family:'Noto Serif TC',serif;font-weight:500;font-size:clamp(18px,2.4vw,27px);line-height:1.75;color:var(--cream);}
   .about-lead em{font-style:normal;color:var(--amber-l);}
-  .about-body p{font-size:13px;line-height:1.95;color:var(--tan-d);margin-bottom:18px;font-weight:300;}
+  .about-body p{font-size:14px;line-height:1.9;color:var(--tan-d);margin-bottom:18px;font-weight:500;}
   .about-services{margin-top:28px;border-top:1px solid var(--line);padding-top:24px;}
-  .about-services .st{font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:var(--mute);margin-bottom:16px;}
+  .about-services .st{font-family:'Barlow Condensed','Manrope',sans-serif;font-size:14px;letter-spacing:.26em;text-transform:uppercase;color:var(--brass);margin-bottom:16px;}
   .about-services ul{list-style:none;display:flex;flex-direction:column;gap:11px;}
   .about-services li{font-family:'Noto Serif TC',serif;font-size:15px;color:var(--tan);display:flex;gap:12px;align-items:baseline;}
   .about-services li::before{content:"—";color:var(--amber);}
+  .about-photo{margin:0 0 28px;border:1px solid rgba(240,183,95,.18);background:var(--bg3);overflow:hidden;aspect-ratio:4/5;}
+  .about-photo img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.9) contrast(1.04);}
+
+  /* EXPERTISE */
+  #expertise{background:var(--bg2);}
+  .expertise-grid{margin-top:50px;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);}
+  .expertise-card{background:linear-gradient(180deg,rgba(34,21,13,.92),rgba(23,16,11,.96));padding:30px 26px;min-height:220px;}
+  .expertise-card .idx{font-family:'Fraunces',serif;font-style:italic;font-size:20px;color:var(--amber-l);margin-bottom:20px;display:block;}
+  .expertise-card h3{font-family:'Fraunces','Noto Serif TC',serif;font-size:24px;font-weight:700;line-height:1.15;margin-bottom:12px;}
+  .expertise-card .zh{font-family:'Noto Serif TC',serif;color:var(--tan);font-size:14px;margin-bottom:18px;}
+  .expertise-card p{font-size:13.5px;line-height:1.78;color:var(--tan-d);font-weight:500;}
+  @media(max-width:920px){.expertise-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:620px){.expertise-grid{grid-template-columns:1fr;}}
 
   /* WORKS */
   #works{background:var(--bg2);}
@@ -81,7 +120,7 @@
   .work-card{display:grid;grid-template-columns:64px 0.85fr 1.15fr;gap:0;border-top:1px solid var(--line);padding:44px 0;position:relative;align-items:center;}
   .work-card:last-child{border-bottom:1px solid var(--line);}
   @media(max-width:720px){.work-card{grid-template-columns:1fr;gap:20px;padding:36px 0;}}
-  .card-num{font-family:'Playfair Display',serif;font-style:italic;font-size:20px;color:var(--mute);align-self:start;padding-top:6px;}
+  .card-num{font-family:'Fraunces',serif;font-style:italic;font-size:22px;color:var(--mute);align-self:start;padding-top:6px;}
   .card-media{position:relative;border-radius:2px;overflow:hidden;background:var(--bg3);aspect-ratio:4/5;max-height:420px;}
   .card-media img,.card-media video{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s cubic-bezier(.2,.7,.2,1);}
   .work-card:hover .card-media img{transform:scale(1.04);}
@@ -89,12 +128,29 @@
   .card-body{padding:0 0 0 44px;}
   @media(max-width:720px){.card-body{padding:0;}}
   .card-titles{display:flex;align-items:baseline;gap:14px;margin-bottom:18px;flex-wrap:wrap;}
-  .card-zh{font-family:'Noto Serif TC',serif;font-weight:500;font-size:26px;color:var(--cream);letter-spacing:.04em;}
-  .card-en{font-family:'Playfair Display',serif;font-style:italic;font-size:15px;color:var(--amber-l);}
-  .card-story{font-family:'Noto Serif TC',serif;font-weight:300;font-size:14px;line-height:1.85;color:var(--tan);margin-bottom:10px;}
-  .card-story-en{font-size:11px;line-height:1.7;color:var(--tan-d);font-style:italic;margin-bottom:20px;font-family:'Playfair Display',serif;}
+  .card-zh{font-family:'Noto Serif TC',serif;font-weight:600;font-size:26px;color:var(--cream);letter-spacing:.04em;}
+  .card-en{font-family:'Fraunces',serif;font-style:italic;font-size:17px;color:var(--amber-l);}
+  .card-story{font-family:'Noto Serif TC',serif;font-weight:500;font-size:14.5px;line-height:1.85;color:var(--tan);margin-bottom:10px;}
+  .card-story-en{font-size:14px;line-height:1.75;color:var(--tan-d);font-style:italic;margin-bottom:20px;font-family:'Fraunces',serif;}
+  body[data-lang="zh"] .card-story-en{display:none;}
+  body[data-lang="en"] .card-story{display:none;}
   .card-specs{list-style:none;display:flex;flex-wrap:wrap;gap:8px;}
-  .card-specs li{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--tan-d);border:1px solid var(--line);padding:5px 11px;border-radius:1px;}
+  .card-specs li{font-family:'Barlow Condensed','Manrope',sans-serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--tan);border:1px solid rgba(240,183,95,.18);padding:6px 12px;border-radius:1px;background:rgba(255,255,255,.015);}
+
+  /* PROJECTS */
+  #projects{background:var(--bg);}
+  .project-list{margin-top:52px;border-top:1px solid rgba(240,183,95,.22);}
+  .project-item{display:grid;grid-template-columns:180px 1fr 1fr;gap:34px;padding:34px 0;border-bottom:1px solid rgba(240,183,95,.16);align-items:start;}
+  .project-mark{display:flex;flex-direction:column;gap:18px;}
+  .project-mark img{width:100%;aspect-ratio:4/5;object-fit:cover;border:1px solid rgba(240,183,95,.16);filter:saturate(.82) contrast(1.05);background:var(--bg3);}
+  .project-mark .press-img{object-position:top center;}
+  .project-kicker{font-family:'Barlow Condensed','Manrope',sans-serif;font-size:14px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);text-shadow:0 0 12px rgba(240,183,95,.16);}
+  .project-item h3{font-family:'Fraunces','Noto Serif TC',serif;font-size:28px;font-weight:700;color:var(--cream);line-height:1.15;}
+  .project-item p{font-size:14px;line-height:1.85;color:var(--tan-d);font-weight:500;}
+  .project-meta{list-style:none;margin-top:18px;display:grid;gap:8px;}
+  .project-meta li{display:grid;grid-template-columns:64px 1fr;gap:14px;font-size:12px;color:var(--tan);}
+  .project-meta b{font-family:'Barlow Condensed','Manrope',sans-serif;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--brass);}
+  @media(max-width:820px){.project-item{grid-template-columns:1fr;gap:12px;}}
 
   /* TOOLS */
   #tools{background:var(--bg);}
@@ -102,9 +158,9 @@
   @media(max-width:720px){.tool-card{grid-template-columns:1fr;padding:32px;gap:28px;}}
   .tool-card .glow{position:absolute;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,#bf6b2233,transparent 70%);top:-100px;right:-60px;filter:blur(40px);pointer-events:none;}
   .tool-eyebrow{font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--amber);margin-bottom:18px;}
-  .tool-name{font-family:'Playfair Display',serif;font-weight:700;font-size:34px;margin-bottom:6px;}
+  .tool-name{font-family:'Fraunces','Noto Serif TC',serif;font-weight:760;font-size:42px;margin-bottom:6px;}
   .tool-tag{font-family:'Noto Serif TC',serif;font-size:14px;color:var(--tan);margin-bottom:24px;letter-spacing:.05em;}
-  .tool-desc{font-family:'Noto Serif TC',serif;font-weight:300;font-size:13.5px;line-height:1.9;color:var(--tan-d);margin-bottom:20px;}
+  .tool-desc{font-family:'Manrope','Noto Serif TC',sans-serif;font-weight:500;font-size:14px;line-height:1.9;color:var(--tan-d);margin-bottom:20px;}
   .tool-feats{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:30px;}
   .tool-feats li{font-size:12px;color:var(--tan);display:flex;gap:10px;align-items:baseline;}
   .tool-feats li::before{content:"◆";color:var(--amber);font-size:8px;}
@@ -112,11 +168,11 @@
   .tool-cta:hover{background:var(--amber-l);gap:16px;}
   .tool-visual{aspect-ratio:1/1;border:1px solid var(--line);border-radius:3px;display:flex;align-items:center;justify-content:center;background:var(--bg2);position:relative;}
   .tool-visual .mock{text-align:center;padding:20px;}
-  .tool-visual .mock .logo{font-family:'Playfair Display',serif;font-weight:900;font-size:60px;color:var(--amber);line-height:1;}
+  .tool-visual .mock .logo{font-family:'Fraunces',serif;font-weight:800;font-size:60px;color:var(--amber);line-height:1;}
   .tool-visual .mock .mname{font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--tan);margin-top:14px;}
   .tool-visual .mock .calc{margin-top:24px;display:flex;flex-direction:column;gap:8px;}
   .tool-visual .mock .calc-row{display:flex;justify-content:space-between;gap:30px;font-size:11px;color:var(--tan-d);border-bottom:1px solid var(--line2);padding-bottom:6px;}
-  .tool-visual .mock .calc-row span:last-child{color:var(--amber-l);font-family:'Playfair Display',serif;}
+  .tool-visual .mock .calc-row span:last-child{color:var(--amber-l);font-family:'Fraunces',serif;}
 
 
   .tool-shots{display:flex;justify-content:center;align-items:center;gap:0;position:relative;min-height:420px;}
@@ -137,8 +193,11 @@
   #contact{background:var(--bg2);text-align:center;padding:120px 40px;}
   .contact-zh{font-family:'Noto Serif TC',serif;font-weight:200;font-size:clamp(26px,4vw,44px);line-height:1.5;color:var(--cream);margin-bottom:14px;}
   .contact-en{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--tan-d);margin-bottom:44px;}
-  .contact-mail{display:inline-block;font-family:'Playfair Display',serif;font-size:clamp(20px,3vw,32px);color:var(--amber-l);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:8px;transition:all .25s;}
-  .contact-mail:hover{border-color:var(--amber);color:var(--amber);}
+  .contact-kicker{font-family:'Barlow Condensed','Manrope',sans-serif;font-size:14px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);text-shadow:0 0 14px rgba(240,183,95,.22);margin-bottom:24px;}
+  .contact-tags{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin:0 auto 36px;max-width:760px;}
+  .contact-tags span{font-family:'Barlow Condensed','Manrope',sans-serif;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--tan);border:1px solid rgba(240,183,95,.18);padding:7px 12px;background:rgba(255,255,255,.018);}
+  .contact-mail{display:inline-block;font-family:'Fraunces','Noto Serif TC',serif;font-size:clamp(20px,3vw,34px);color:var(--amber-l);text-decoration:none;border-bottom:1px solid rgba(240,183,95,.25);padding-bottom:8px;transition:all .25s;}
+  .contact-mail:hover{border-color:var(--gold);color:var(--gold);text-shadow:0 0 16px rgba(240,183,95,.28);}
   footer{padding:30px 40px;border-top:1px solid var(--line2);display:flex;justify-content:space-between;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute-d);}
   @media(max-width:720px){footer{flex-direction:column;gap:8px;text-align:center;}}
 
@@ -148,65 +207,189 @@
   @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
 </style>
 </head>
-<body>
+<body data-lang="en">
 
 <nav class="top">
   <div class="brand">Katrina Wong</div>
   <div class="links">
-    <a href="#about">About</a>
-    <a href="#works">Works</a>
-    <a href="#tools">Tools</a>
-    <a href="#contact">Contact</a>
+    <a href="#about" data-i18n="navAbout">About</a>
+    <a href="#expertise" data-i18n="navExpertise">Expertise</a>
+    <a href="#projects" data-i18n="navProjects">Projects</a>
+    <a href="#works" data-i18n="navCocktails">Cocktails</a>
+    <a href="#tools" data-i18n="navTools">Tools</a>
+    <a href="#contact" data-i18n="navContact">Contact</a>
+  </div>
+  <div class="lang-toggle" aria-label="Language selector">
+    <button type="button" data-lang-btn="zh">中</button>
+    <button type="button" class="active" data-lang-btn="en">EN</button>
   </div>
 </nav>
 
 <!-- HERO -->
 <header class="hero">
   <div class="left">
-    <span class="issue">Portfolio — 2024</span>
-    <h1><span class="zh">調酒師・飲品顧問</span>Bartender &amp;<br>Beverage<br>Director</h1>
+    <span class="issue" data-i18n="heroIssue">Portfolio — 2026</span>
+    <h1><span class="zh" data-i18n="heroZh">飲品顧問・品牌教育・酒類行銷</span><span data-i18n-html="heroTitle">Beverage<br>Consultant &amp;<br>Brand Specialist</span></h1>
     <div class="rule"></div>
-    <p class="desc">以台灣的山海風土為語言，用每一個食材的選擇說一個故事。專注菜單研發、風味系統與品牌飲品策略。</p>
+    <p class="desc" data-i18n="heroDesc">結合調酒研發、品牌教育、通路行銷與數位工具，協助酒類品牌與餐飲場域打造更有故事、更能落地的飲品體驗。</p>
     <div class="bignum">K</div>
   </div>
   <div class="right">
-    <span class="lbl">Selected Works</span>
+    <span class="lbl" data-i18n="coreLabel">Core Work</span>
     <ul class="clist">
-      <li><span class="cn">峰嶼霧</span><span class="ce">Island Mist</span></li>
-      <li><span class="cn">慢遊夜市</span><span class="ce">Night Market</span></li>
-      <li><span class="cn">烏蘇拉的魔藥</span><span class="ce">Ursula's Potion</span></li>
-      <li><span class="cn">醉梅</span><span class="ce">Plum Reverie</span></li>
-      <li><span class="cn">甘桔茶社</span><span class="ce">Kumquat Parlour</span></li>
+      <li><span class="cn" data-i18n="core1Zh">品牌推廣與通路合作</span><span class="ce" data-i18n="core1En">Brand Activation</span></li>
+      <li><span class="cn" data-i18n="core2Zh">品酒會講師</span><span class="ce" data-i18n="core2En">Tasting Lecture</span></li>
+      <li><span class="cn" data-i18n="core3Zh">外國講師口譯</span><span class="ce" data-i18n="core3En">Interpretation</span></li>
+      <li><span class="cn" data-i18n="core4Zh">調酒研發與顧問</span><span class="ce" data-i18n="core4En">Cocktail R&amp;D</span></li>
+      <li><span class="cn" data-i18n="core5Zh">配方工具與資料庫</span><span class="ce" data-i18n="core5En">Digital Systems</span></li>
     </ul>
-    <span class="foot">Taiwan · Beverage Consulting</span>
+    <span class="foot">Taiwan · Spirits Marketing · Beverage Consulting</span>
   </div>
 </header>
 
 <!-- ABOUT -->
 <section class="section" id="about">
-  <div class="sec-head reveal"><span class="sec-eyebrow">01 — About</span><span class="sec-line"></span></div>
-  <h2 class="sec-title reveal">The Maker<span class="zh">關於我</span></h2>
+  <div class="sec-head reveal"><span class="sec-eyebrow" data-i18n="aboutEyebrow">01 — About</span><span class="sec-line"></span></div>
+  <h2 class="sec-title reveal"><span data-i18n="aboutTitle">The Profile</span><span class="zh" data-i18n="aboutTitleZh">關於我</span></h2>
   <div class="about-grid">
-    <p class="about-lead reveal">我是 Katrina Wong，一位專注於<em>台灣在地風味</em>的調酒師與飲品顧問。擅長將夜市、節氣、童年滋味，轉化為一杯杯有故事的調酒。</p>
+    <p class="about-lead reveal" data-i18n-html="aboutLead">我是 Katrina Wong，擁有飯店 F&amp;B 營運、吧台管理、酒類品牌行銷與<em>飲品研發</em>經驗。我的工作橫跨品牌推廣、通路合作、品酒教育、調酒研發與數位工具建置。</p>
     <div class="about-body reveal">
-      <p>我的創作建立在嚴謹的風味邏輯與成本意識上——從自製糖漿、澄清技法、Fat-wash，到完整的季節菜單設計。每一杯酒都有明確的文化錨點與可被複製的配方結構。</p>
+      <figure class="about-photo">
+        <img src="assets/portfolio/profile-portrait.png" alt="Katrina Wong portrait with a wine glass" loading="lazy">
+      </figure>
+      <p data-i18n="aboutBody">我擅長把酒類產品轉化為可被理解、可被體驗、也能被銷售的飲品故事。從品牌教育、品酒會講授、外國講師口譯，到菜單研發、特殊技法應用與合作提案，我重視風味邏輯，也重視商業現場能否落地。</p>
       <div class="about-services">
-        <p class="st">Consulting Services</p>
+        <p class="st" data-i18n="focusTitle">Professional Focus</p>
         <ul>
-          <li>菜單研發與季節企劃</li>
-          <li>風味系統建構</li>
-          <li>品牌飲品策略</li>
-          <li>團隊訓練與標準化</li>
+          <li data-i18n="focus1">品牌行銷與通路推廣</li>
+          <li data-i18n="focus2">品酒會講師與品牌教育</li>
+          <li data-i18n="focus3">飲品研發與菜單顧問</li>
+          <li data-i18n="focus4">配方資料庫與流程標準化</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
+<!-- EXPERTISE -->
+<section class="section" id="expertise">
+  <div class="sec-head reveal"><span class="sec-eyebrow" data-i18n="expertiseEyebrow">02 — Expertise</span><span class="sec-line"></span></div>
+  <h2 class="sec-title reveal"><span data-i18n="expertiseTitle">What I Do</span><span class="zh" data-i18n="expertiseTitleZh">專業能力</span></h2>
+  <div class="expertise-grid">
+    <article class="expertise-card reveal">
+      <span class="idx">01</span>
+      <h3>Brand Marketing</h3>
+      <p class="zh" data-i18n="expertise1Sub">品牌推廣與通路合作</p>
+      <p data-i18n="expertise1Body">負責國際烈酒品牌推廣、餐飲通路經營、行銷活動企劃與專業賽事執行，讓產品從品牌語言轉化為市場可以參與的體驗。</p>
+    </article>
+    <article class="expertise-card reveal">
+      <span class="idx">02</span>
+      <h3>Beverage Consulting</h3>
+      <p class="zh" data-i18n="expertise2Sub">飲品研發與顧問</p>
+      <p data-i18n="expertise2Body">結合吧台實務、風味設計、成本意識與特殊技法，協助餐飲場域建立可複製、可訓練、可銷售的飲品系統。</p>
+    </article>
+    <article class="expertise-card reveal">
+      <span class="idx">03</span>
+      <h3>Brand Education</h3>
+      <p class="zh" data-i18n="expertise3Sub">品酒講授與雙語支援</p>
+      <p data-i18n="expertise3Body">擔任品酒會講師，提供產品教育、品飲引導、品牌故事詮釋，並支援外國講師於大師班與訓練場合的口譯溝通。</p>
+    </article>
+    <article class="expertise-card reveal">
+      <span class="idx">04</span>
+      <h3>Digital Systems</h3>
+      <p class="zh" data-i18n="expertise4Sub">配方工具與資料庫</p>
+      <p data-i18n="expertise4Body">建立 Zephyr Mixology 與酒譜資料庫，整理配方計算、批量換算、特殊技法與個人酒譜，讓飲品研發流程更標準化。</p>
+    </article>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="section" id="projects">
+  <div class="sec-head reveal"><span class="sec-eyebrow" data-i18n="projectsEyebrow">03 — Projects</span><span class="sec-line"></span></div>
+  <h2 class="sec-title reveal"><span data-i18n="projectsTitle">Selected Projects</span><span class="zh" data-i18n="projectsTitleZh">職涯專案</span></h2>
+  <div class="project-list">
+    <article class="project-item reveal">
+      <div class="project-mark">
+        <p class="project-kicker">Brand Activation</p>
+        <img src="assets/portfolio/project-lecture.jpg" alt="Brand education tasting lecture" loading="lazy">
+      </div>
+      <div>
+        <h3>Win-Sense International</h3>
+        <ul class="project-meta">
+          <li><b>Role</b><span data-i18n="project1Role">Sales Marketing / Brand Education</span></li>
+          <li><b>Focus</b><span data-i18n="project1Focus">Spirits Portfolio / On-Premise Channels</span></li>
+          <li><b>Output</b><span data-i18n="project1Output">Trade Activation / Client Education</span></li>
+        </ul>
+      </div>
+      <p data-i18n="project1Body">負責 Marie Brizard、Stoli 等國際酒類品牌的通路推廣、客戶溝通、活動企劃與品牌教育，連結產品特色與餐飲現場需求。</p>
+    </article>
+    <article class="project-item reveal">
+      <div class="project-mark">
+        <p class="project-kicker">Competition &amp; Event</p>
+        <img src="assets/portfolio/project-bar-team.jpg" alt="Bar team event in amber lighting" loading="lazy">
+      </div>
+      <div>
+        <h3>TBS 2026</h3>
+        <ul class="project-meta">
+          <li><b>Role</b><span data-i18n="project2Role">Masterclass Support / Event Planning</span></li>
+          <li><b>Focus</b><span data-i18n="project2Focus">Professional Training / Brand Education</span></li>
+          <li><b>Output</b><span data-i18n="project2Output">Event Flow / Market Activation</span></li>
+        </ul>
+      </div>
+      <p data-i18n="project2Body">參與 TBS 2026 專業大師班與決賽籌備，整合活動流程、品牌溝通、講師支援、專業內容傳遞與市場推廣。</p>
+    </article>
+    <article class="project-item reveal">
+      <div class="project-mark">
+        <p class="project-kicker">Education</p>
+        <img src="assets/portfolio/project-press-2.jpg" class="press-img" alt="Press clipping of bartending feature" loading="lazy">
+      </div>
+      <div>
+        <h3>Tasting Lectures &amp; Masterclass Support</h3>
+        <ul class="project-meta">
+          <li><b>Role</b><span data-i18n="project3Role">Lecturer / Interpreter</span></li>
+          <li><b>Focus</b><span data-i18n="project3Focus">Product Knowledge / Tasting Structure</span></li>
+          <li><b>Output</b><span data-i18n="project3Output">Trade Training / Storytelling</span></li>
+        </ul>
+      </div>
+      <p data-i18n="project3Body">擔任品酒會講師，提供產品知識、品飲邏輯與調酒應用說明；同時支援外國講師口譯，協助專業內容被清楚傳遞。</p>
+    </article>
+    <article class="project-item reveal">
+      <div class="project-mark">
+        <p class="project-kicker">Technical Consulting</p>
+        <img src="assets/portfolio/zephyr-tech.jpg" alt="Zephyr Mixology technique database screen" loading="lazy">
+      </div>
+      <div>
+        <h3>AbsinthRite Beverage Solutions</h3>
+        <ul class="project-meta">
+          <li><b>Role</b><span data-i18n="project4Role">Technical Consultant</span></li>
+          <li><b>Focus</b><span data-i18n="project4Focus">Automated Service / Bar Operations</span></li>
+          <li><b>Output</b><span data-i18n="project4Output">Training / Partnership Proposals</span></li>
+        </ul>
+      </div>
+      <p data-i18n="project4Body">協助智能調酒設備導入市場，提供技術顧問、合作提案、操作教育與應用情境規劃，讓設備能對接吧台營運需求。</p>
+    </article>
+    <article class="project-item reveal">
+      <div class="project-mark">
+        <p class="project-kicker">Market Development</p>
+        <img src="assets/portfolio/cocktail-rooibos.jpg" alt="Tea cocktail concept with warm bar styling" loading="lazy">
+      </div>
+      <div>
+        <h3>New Drinking Concepts</h3>
+        <ul class="project-meta">
+          <li><b>Role</b><span data-i18n="project5Role">Concept Development</span></li>
+          <li><b>Focus</b><span data-i18n="project5Focus">Standing Bar / Tea Cocktails</span></li>
+          <li><b>Output</b><span data-i18n="project5Output">New Channel Possibilities</span></li>
+        </ul>
+      </div>
+      <p data-i18n="project5Body">開發立飲文化、茶調酒與概念型飲品體驗等新商業場景，探索酒類品牌在不同通路與生活型態中的可能性。</p>
+    </article>
+  </div>
+</section>
+
 <!-- WORKS -->
 <section class="section" id="works">
-  <div class="sec-head reveal"><span class="sec-eyebrow">02 — Works</span><span class="sec-line"></span></div>
-  <h2 class="sec-title reveal">Selected Cocktails<span class="zh">代表作品</span></h2>
+  <div class="sec-head reveal"><span class="sec-eyebrow" data-i18n="cocktailsEyebrow">04 — Cocktails</span><span class="sec-line"></span></div>
+  <h2 class="sec-title reveal"><span data-i18n="cocktailsTitle">Selected Cocktails</span><span class="zh" data-i18n="cocktailsTitleZh">代表作品</span></h2>
   <div class="works-grid">
 
     <article class="work-card" data-idx="0">
@@ -219,7 +402,7 @@
         </div>
         <p class="card-story">以台灣的山峰、島嶼、雲霧為靈感，用茶葉、百香果、煙燻，呈現台灣在地的風情。</p>
         <p class="card-story-en">Taiwan's peaks, islands and mist — rendered through tea, passionfruit and smoke.</p>
-        <ul class="card-specs"><li>烏龍茶 Gin</li><li>百香果糖漿</li><li>澄清檸檬汁</li><li>Ardbeg 煙燻</li></ul>
+        <ul class="card-specs"><li data-i18n="spec1a">烏龍茶 Gin</li><li data-i18n="spec1b">百香果糖漿</li><li data-i18n="spec1c">澄清檸檬汁</li><li data-i18n="spec1d">Ardbeg 煙燻</li></ul>
       </div>
     </article>
     <article class="work-card" data-idx="1">
@@ -232,7 +415,7 @@
         </div>
         <p class="card-story">以夜市水果攤發想，用台灣高山清茶 infuse 的 Rum，搭配澄清紅心芭樂汁與蘋果梅子泡泡，給人一種猶如置身夜市的感受。</p>
         <p class="card-story-en">Inspired by night-market fruit stalls — high-mountain tea rum, clarified guava, plum foam.</p>
-        <ul class="card-specs"><li>高山清茶 Rum</li><li>澄清紅心芭樂汁</li><li>芭樂脆片</li><li>梅粉</li></ul>
+        <ul class="card-specs"><li data-i18n="spec2a">高山清茶 Rum</li><li data-i18n="spec2b">澄清紅心芭樂汁</li><li data-i18n="spec2c">芭樂脆片</li><li data-i18n="spec2d">梅粉</li></ul>
       </div>
     </article>
     <article class="work-card" data-idx="2">
@@ -250,7 +433,7 @@
         </div>
         <p class="card-story">彷彿從童話世界跳出的神奇飲品。蝶豆花帶來藍色魔法，薰衣草飄散迷人香氣，自製發泡錠是讓整杯魔藥神奇變色的關鍵。</p>
         <p class="card-story-en">A potion from a fairy tale — butterfly-pea blue, lavender aroma, and a fizzing tablet that changes its color.</p>
-        <ul class="card-specs"><li>蝶豆花 Gin</li><li>蝶豆花茶</li><li>薰衣草糖漿</li><li>自製維生素丸</li></ul>
+        <ul class="card-specs"><li data-i18n="spec3a">蝶豆花 Gin</li><li data-i18n="spec3b">蝶豆花茶</li><li data-i18n="spec3c">薰衣草糖漿</li><li data-i18n="spec3d">自製維生素丸</li></ul>
       </div>
     </article>
     <article class="work-card" data-idx="3">
@@ -268,7 +451,7 @@
         </div>
         <p class="card-story">以巧克力與探險為主題，融化的巧克力冰磚垂流杯壁，撒上金粉與香料，佐起司餅。像翻開一本冒險故事書，藏著甜美與驚奇。</p>
         <p class="card-story-en">Chocolate and adventure — a melting chocolate ice block, gold dust and spice, served with a cheese cracker. Like opening a storybook.</p>
-        <ul class="card-specs"><li>威士忌</li><li>巧克力冰磚</li><li>金箔香料</li><li>起司餅</li></ul>
+        <ul class="card-specs"><li data-i18n="spec4a">威士忌</li><li data-i18n="spec4b">巧克力冰磚</li><li data-i18n="spec4c">金箔香料</li><li data-i18n="spec4d">起司餅</li></ul>
       </div>
     </article>
     <article class="work-card" data-idx="4">
@@ -281,7 +464,7 @@
         </div>
         <p class="card-story">紹興是台灣廚房常見的調料，以此為發想搭配烏梅，再加上 soda 的汽泡感，清爽開胃，適合餐前飲用。</p>
         <p class="card-story-en">Shaoxing wine — a kitchen staple — reimagined with preserved plum and soda. Crisp and appetizing.</p>
-        <ul class="card-specs"><li>紹興</li><li>Beefeater</li><li>烏梅糖漿</li><li>Soda</li></ul>
+        <ul class="card-specs"><li data-i18n="spec5a">紹興</li><li data-i18n="spec5b">Beefeater</li><li data-i18n="spec5c">烏梅糖漿</li><li data-i18n="spec5d">Soda</li></ul>
       </div>
     </article>
     <article class="work-card" data-idx="5">
@@ -294,7 +477,7 @@
         </div>
         <p class="card-story">Martini 結構的濃香型作品，以澄清小金桔汁、自製烏龍苦精與柑橘鹽水，佐自製桂花金桔羊羹。</p>
         <p class="card-story-en">A rich martini structure — clarified kumquat, house oolong bitters, citrus brine, with osmanthus-kumquat jelly.</p>
-        <ul class="card-specs"><li>Gordon's Gin</li><li>澄清小金桔汁</li><li>自製烏龍苦精</li><li>桂花金桔羊羹</li></ul>
+        <ul class="card-specs"><li data-i18n="spec6a">Gordon's Gin</li><li data-i18n="spec6b">澄清小金桔汁</li><li data-i18n="spec6c">自製烏龍苦精</li><li data-i18n="spec6d">桂花金桔羊羹</li></ul>
       </div>
     </article>
     <article class="work-card" data-idx="6">
@@ -307,7 +490,7 @@
         </div>
         <p class="card-story">Old Fashioned 結構，以 Fat wash 手法製作的濃香甜型作品，柿子利口酒搭配地瓜爆米花。</p>
         <p class="card-story-en">An Old Fashioned built on fat-washing — persimmon liqueur and sweet-potato popcorn.</p>
-        <ul class="card-specs"><li>Johnnie Walker</li><li>柿子利口酒</li><li>地瓜爆米花</li><li>奶油 Fat-wash</li></ul>
+        <ul class="card-specs"><li data-i18n="spec7a">Johnnie Walker</li><li data-i18n="spec7b">柿子利口酒</li><li data-i18n="spec7c">地瓜爆米花</li><li data-i18n="spec7d">奶油 Fat-wash</li></ul>
       </div>
     </article>
   
@@ -317,42 +500,147 @@
 
 <!-- TOOLS -->
 <section class="section" id="tools">
-  <div class="sec-head reveal"><span class="sec-eyebrow">03 — Tools</span><span class="sec-line"></span></div>
-  <h2 class="sec-title reveal">Built by a Bartender<span class="zh">工具開發</span></h2>
+  <div class="sec-head reveal"><span class="sec-eyebrow" data-i18n="toolsEyebrow">05 — Tools</span><span class="sec-line"></span></div>
+  <h2 class="sec-title reveal"><span data-i18n="toolsTitle">Built for Beverage Work</span><span class="zh" data-i18n="toolsTitleZh">工具開發</span></h2>
   <div class="tool-card reveal">
     <div class="glow"></div>
     <div class="tool-info">
-      <p class="tool-eyebrow">Product · Mobile App</p>
+      <p class="tool-eyebrow">Digital System · Bartender Toolkit</p>
       <h3 class="tool-name">Zephyr Mixology</h3>
-      <p class="tool-tag">為調酒師打造的配方計算工具</p>
-      <p class="tool-desc">身為調酒師，我發現配方換算、稀釋計算與技法管理在實務上耗時又容易出錯。於是我親手打造了 Zephyr Mixology——一個專為吧台工作流程設計的行動工具。</p>
+      <p class="tool-tag" data-i18n="toolTag">配方計算、酒譜管理與特殊技法資料庫</p>
+      <p class="tool-desc" data-i18n="toolDesc">Zephyr Mixology 是我為飲品研發與吧台工作流程建立的數位工具，從原始的 CocktailCalc 專案延伸而來，整合配方計算、批量換算、酒譜管理、特殊技法資料庫與個人配方儲存，協助研發流程更標準化、可複製、可管理。</p>
       <ul class="tool-feats">
-        <li>稀釋水量與批量換算</li>
-        <li>專業技法資料庫：澄清・油洗・發泡・標準化</li>
-        <li>配方儲存與雲端同步</li>
+        <li data-i18n="toolFeat1">配方比例、稀釋水量與批量換算</li>
+        <li data-i18n="toolFeat2">特殊技法資料庫：澄清・油洗・發泡・Infusion</li>
+        <li data-i18n="toolFeat3">個人酒譜儲存、編輯與資料化管理</li>
       </ul>
-      <a class="tool-cta" href="#">開啟 Zephyr Mixology →</a>
+      <a class="tool-cta" href="https://cocktail-calc-4b2c.vercel.app" target="_blank" rel="noopener" data-i18n="toolCta">Open Zephyr Mixology →</a>
     </div>
     <div class="tool-shots">
-        <div class="phone phone-1"><img src="app/app-calc.jpg" alt="Calculator"></div>
-        <div class="phone phone-2"><img src="app/app-tech.jpg" alt="Techniques"></div>
-        <div class="phone phone-3"><img src="app/app-recipes.jpg" alt="Recipes"></div>
+        <div class="phone phone-1"><img src="assets/portfolio/zephyr-calc.jpg" alt="Zephyr Mixology calculator" loading="lazy"></div>
+        <div class="phone phone-2"><img src="assets/portfolio/zephyr-tech.jpg" alt="Zephyr Mixology technique database" loading="lazy"></div>
+        <div class="phone phone-3"><img src="assets/portfolio/zephyr-library.jpg" alt="Zephyr Mixology recipe library" loading="lazy"></div>
       </div>
   </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
-  <p class="contact-zh reveal">正在尋找飲品顧問<br>或菜單合作？</p>
-  <p class="contact-en reveal">Let's create something with a story</p>
+  <p class="contact-kicker" data-i18n="contactKicker">06 — Last Call / Contact</p>
+  <p class="contact-zh reveal" data-i18n-html="contactTitle">正在尋找品牌教育、飲品顧問<br>或調酒研發合作？</p>
+  <p class="contact-en reveal" data-i18n="contactDesc">Available for brand activation, tasting lectures, masterclass support, menu development, and cocktail R&amp;D</p>
+  <div class="contact-tags reveal">
+    <span data-i18n="contactTag1">Brand Activation</span>
+    <span data-i18n="contactTag2">Tasting Lecture</span>
+    <span data-i18n="contactTag3">Masterclass Support</span>
+    <span data-i18n="contactTag4">Menu Development</span>
+    <span data-i18n="contactTag5">Cocktail R&amp;D</span>
+  </div>
   <a class="contact-mail reveal" href="mailto:katrinawong.wsi@gmail.com">katrinawong.wsi@gmail.com</a>
 </section>
 <footer>
-  <span>© 2024 Katrina Wong</span>
-  <span>Bartender &amp; Beverage Director · Taiwan</span>
+  <span>© 2026 Katrina Wong</span>
+  <span>Beverage Consultant &amp; Brand Marketing Specialist · Taiwan</span>
 </footer>
 
 <script>
+  const copy={
+    zh:{
+      navAbout:"About",navExpertise:"Expertise",navProjects:"Projects",navCocktails:"Cocktails",navTools:"Tools",navContact:"Contact",
+      heroIssue:"Portfolio — 2026",heroZh:"飲品顧問・品牌教育・酒類行銷",heroTitle:"Beverage<br>Consultant &amp;<br>Brand Specialist",
+      heroDesc:"結合調酒研發、品牌教育、通路行銷與數位工具，協助酒類品牌與餐飲場域打造更有故事、更能落地的飲品體驗。",
+      coreLabel:"Core Work",core1Zh:"品牌推廣與通路合作",core1En:"Brand Activation",core2Zh:"品酒會講師",core2En:"Tasting Lecture",
+      core3Zh:"外國講師口譯",core3En:"Interpretation",core4Zh:"調酒研發與顧問",core4En:"Cocktail R&D",core5Zh:"配方工具與資料庫",core5En:"Digital Systems",
+      aboutEyebrow:"01 — Counter / About",aboutTitle:"The Profile",aboutTitleZh:"關於我",
+      aboutLead:"我是 Katrina Wong，擁有飯店 F&amp;B 營運、吧台管理、酒類品牌行銷與<em>飲品研發</em>經驗。我的工作橫跨品牌推廣、通路合作、品酒教育、調酒研發與數位工具建置。",
+      aboutBody:"我擅長把酒類產品轉化為可被理解、可被體驗、也能被銷售的飲品故事。從品牌教育、品酒會講授、外國講師口譯，到菜單研發、特殊技法應用與合作提案，我重視風味邏輯，也重視商業現場能否落地。",
+      focusTitle:"Professional Focus",focus1:"品牌行銷與通路推廣",focus2:"品酒會講師與品牌教育",focus3:"飲品研發與菜單顧問",focus4:"配方資料庫與流程標準化",
+      expertiseEyebrow:"02 — Back Bar / Expertise",expertiseTitle:"What I Do",expertiseTitleZh:"專業能力",
+      expertise1Sub:"品牌推廣與通路合作",expertise1Body:"負責國際烈酒品牌推廣、餐飲通路經營、行銷活動企劃與專業賽事執行，讓產品從品牌語言轉化為市場可以參與的體驗。",
+      expertise2Sub:"飲品研發與顧問",expertise2Body:"結合吧台實務、風味設計、成本意識與特殊技法，協助餐飲場域建立可複製、可訓練、可銷售的飲品系統。",
+      expertise3Sub:"品酒講授與雙語支援",expertise3Body:"擔任品酒會講師，提供產品教育、品飲引導、品牌故事詮釋，並支援外國講師於大師班與訓練場合的口譯溝通。",
+      expertise4Sub:"配方工具與資料庫",expertise4Body:"建立 Zephyr Mixology 與酒譜資料庫，整理配方計算、批量換算、特殊技法與個人酒譜，讓飲品研發流程更標準化。",
+      projectsEyebrow:"03 — Ledger / Projects",projectsTitle:"Selected Projects",projectsTitleZh:"職涯專案",
+      project1Role:"業務行銷 / 品牌教育",project1Focus:"國際酒類品牌 / 餐飲通路",project1Output:"通路推廣 / 客戶教育",
+      project1Body:"負責 Marie Brizard、Stoli 等國際酒類品牌的通路推廣、客戶溝通、活動企劃與品牌教育，連結產品特色與餐飲現場需求。",
+      project2Role:"大師班支援 / 活動企劃",project2Focus:"專業訓練 / 品牌教育",project2Output:"活動流程 / 市場推廣",
+      project2Body:"參與 TBS 2026 專業大師班與決賽籌備，整合活動流程、品牌溝通、講師支援、專業內容傳遞與市場推廣。",
+      project3Role:"品酒講師 / 口譯支援",project3Focus:"產品知識 / 品飲結構",project3Output:"通路訓練 / 品牌故事",
+      project3Body:"擔任品酒會講師，提供產品知識、品飲邏輯與調酒應用說明；同時支援外國講師口譯，協助專業內容被清楚傳遞。",
+      project4Role:"技術顧問",project4Focus:"自動化服務 / 吧台營運",project4Output:"操作教育 / 合作提案",
+      project4Body:"協助智能調酒設備導入市場，提供技術顧問、合作提案、操作教育與應用情境規劃，讓設備能對接吧台營運需求。",
+      project5Role:"概念開發",project5Focus:"立飲文化 / 茶調酒",project5Output:"新通路可能性",
+      project5Body:"開發立飲文化、茶調酒與概念型飲品體驗等新商業場景，探索酒類品牌在不同通路與生活型態中的可能性。",
+      cocktailsEyebrow:"04 — Menu / Cocktails",cocktailsTitle:"Selected Cocktails",cocktailsTitleZh:"代表作品",
+      spec1a:"烏龍茶 Gin",spec1b:"百香果糖漿",spec1c:"澄清檸檬汁",spec1d:"Ardbeg 煙燻",
+      spec2a:"高山清茶 Rum",spec2b:"澄清紅心芭樂汁",spec2c:"芭樂脆片",spec2d:"梅粉",
+      spec3a:"蝶豆花 Gin",spec3b:"蝶豆花茶",spec3c:"薰衣草糖漿",spec3d:"自製維生素丸",
+      spec4a:"威士忌",spec4b:"巧克力冰磚",spec4c:"金箔香料",spec4d:"起司餅",
+      spec5a:"紹興",spec5b:"Beefeater",spec5c:"烏梅糖漿",spec5d:"Soda",
+      spec6a:"Gordon's Gin",spec6b:"澄清小金桔汁",spec6c:"自製烏龍苦精",spec6d:"桂花金桔羊羹",
+      spec7a:"Johnnie Walker",spec7b:"柿子利口酒",spec7c:"地瓜爆米花",spec7d:"奶油 Fat-wash",
+      toolsEyebrow:"05 — Lab / Zephyr Mixology",toolsTitle:"Built for Beverage Work",toolsTitleZh:"工具開發",
+      toolTag:"配方計算、酒譜管理與特殊技法資料庫",
+      toolDesc:"Zephyr Mixology 是我為飲品研發與吧台工作流程建立的數位工具，從原始的 CocktailCalc 專案延伸而來，整合配方計算、批量換算、酒譜管理、特殊技法資料庫與個人配方儲存，協助研發流程更標準化、可複製、可管理。",
+      toolFeat1:"配方比例、稀釋水量與批量換算",toolFeat2:"特殊技法資料庫：澄清・油洗・發泡・Infusion",toolFeat3:"個人酒譜儲存、編輯與資料化管理",toolCta:"Open Zephyr Mixology →",
+      contactKicker:"06 — Last Call / Contact",contactTitle:"正在尋找品牌教育、飲品顧問<br>或調酒研發合作？",contactDesc:"Available for brand activation, tasting lectures, masterclass support, menu development, and cocktail R&D",
+      contactTag1:"品牌推廣",contactTag2:"品酒講座",contactTag3:"大師班支援",contactTag4:"菜單研發",contactTag5:"調酒研發"
+    },
+    en:{
+      navAbout:"About",navExpertise:"Expertise",navProjects:"Projects",navCocktails:"Cocktails",navTools:"Tools",navContact:"Contact",
+      heroIssue:"Portfolio — 2026",heroZh:"Beverage Consulting · Brand Education · Spirits Marketing",heroTitle:"Beverage<br>Consultant &amp;<br>Brand Specialist",
+      heroDesc:"I connect cocktail R&D, brand education, on-premise marketing, and digital tools to help spirits brands and hospitality venues create beverage experiences with story, structure, and commercial impact.",
+      coreLabel:"Core Work",core1Zh:"Brand Activation",core1En:"On-Premise",core2Zh:"Tasting Lecture",core2En:"Education",
+      core3Zh:"Masterclass Support",core3En:"Interpretation",core4Zh:"Cocktail R&D",core4En:"Consulting",core5Zh:"Recipe Database",core5En:"Digital Systems",
+      aboutEyebrow:"01 — Counter / About",aboutTitle:"The Profile",aboutTitleZh:"About Me",
+      aboutLead:"I am Katrina Wong, a beverage consultant with experience across hotel F&amp;B operations, bar management, spirits brand marketing, and <em>cocktail R&amp;D</em>. My work bridges brand activation, on-premise channels, tasting education, drink development, and digital beverage systems.",
+      aboutBody:"I specialize in turning spirits products into beverage stories that can be understood, experienced, and sold. From brand education, tasting lectures, and guest speaker interpretation to menu development, advanced techniques, and partnership proposals, I care about both flavor logic and real-world execution.",
+      focusTitle:"Professional Focus",focus1:"Brand marketing and on-premise activation",focus2:"Tasting lectures and brand education",focus3:"Cocktail R&D and menu consulting",focus4:"Recipe databases and workflow standardization",
+      expertiseEyebrow:"02 — Back Bar / Expertise",expertiseTitle:"What I Do",expertiseTitleZh:"Expertise",
+      expertise1Sub:"Brand activation and channel development",expertise1Body:"I promote international spirits brands, manage on-premise relationships, plan trade events, and support professional competitions, translating brand language into market-facing experiences.",
+      expertise2Sub:"Cocktail R&D and consulting",expertise2Body:"Combining bar operations, flavor design, cost awareness, and advanced techniques, I help hospitality venues build beverage systems that are repeatable, trainable, and commercially practical.",
+      expertise3Sub:"Tasting lectures and bilingual support",expertise3Body:"I deliver tasting lectures with product education, tasting guidance, and brand storytelling, while supporting international speakers with interpretation during masterclasses and training sessions.",
+      expertise4Sub:"Recipe tools and databases",expertise4Body:"I built Zephyr Mixology and a recipe database to organize cocktail calculations, batching, advanced techniques, and personal recipes for a more standardized R&D workflow.",
+      projectsEyebrow:"03 — Ledger / Projects",projectsTitle:"Selected Projects",projectsTitleZh:"Career Projects",
+      project1Role:"Sales Marketing / Brand Education",project1Focus:"Spirits Portfolio / On-Premise Channels",project1Output:"Trade Activation / Client Education",
+      project1Body:"Manage on-premise activation, client communication, event planning, and brand education for international spirits portfolios including Marie Brizard and Stoli, connecting product identity with hospitality needs.",
+      project2Role:"Masterclass Support / Event Planning",project2Focus:"Professional Training / Brand Education",project2Output:"Event Flow / Market Activation",
+      project2Body:"Support the planning of TBS 2026 professional masterclasses and finals, coordinating event flow, brand communication, speaker support, professional content delivery, and market engagement.",
+      project3Role:"Lecturer / Interpreter",project3Focus:"Product Knowledge / Tasting Structure",project3Output:"Trade Training / Storytelling",
+      project3Body:"Serve as a tasting lecturer, delivering product knowledge, tasting structure, and cocktail applications, while providing interpretation for international guest speakers to make professional content clear and accessible.",
+      project4Role:"Technical Consultant",project4Focus:"Automated Service / Bar Operations",project4Output:"Training / Partnership Proposals",
+      project4Body:"Support the market introduction of intelligent cocktail service equipment through technical consulting, partnership proposals, operation training, and real-world use-case planning.",
+      project5Role:"Concept Development",project5Focus:"Standing Bar / Tea Cocktails",project5Output:"New Channel Possibilities",
+      project5Body:"Develop new commercial beverage concepts such as standing bar culture, tea-based cocktails, and concept-driven drink experiences, exploring how spirits brands can enter different channels and lifestyles.",
+      cocktailsEyebrow:"04 — Menu / Cocktails",cocktailsTitle:"Selected Cocktails",cocktailsTitleZh:"Signature Drinks",
+      spec1a:"Oolong Gin",spec1b:"Passionfruit Syrup",spec1c:"Clarified Lemon",spec1d:"Ardbeg Smoke",
+      spec2a:"High Mountain Tea Rum",spec2b:"Clarified Pink Guava",spec2c:"Guava Crisp",spec2d:"Plum Powder",
+      spec3a:"Butterfly Pea Gin",spec3b:"Butterfly Pea Tea",spec3c:"Lavender Syrup",spec3d:"House Fizz Tablet",
+      spec4a:"Whisky",spec4b:"Chocolate Ice Block",spec4c:"Gold Spice",spec4d:"Cheese Cracker",
+      spec5a:"Shaoxing Wine",spec5b:"Beefeater",spec5c:"Smoked Plum Syrup",spec5d:"Soda",
+      spec6a:"Gordon's Gin",spec6b:"Clarified Kumquat",spec6c:"House Oolong Bitters",spec6d:"Osmanthus Kumquat Jelly",
+      spec7a:"Johnnie Walker",spec7b:"Persimmon Liqueur",spec7c:"Sweet Potato Popcorn",spec7d:"Butter Fat-Wash",
+      toolsEyebrow:"05 — Lab / Zephyr Mixology",toolsTitle:"Built for Beverage Work",toolsTitleZh:"Digital Tool",
+      toolTag:"Cocktail calculation, recipe management, and technique database",
+      toolDesc:"Zephyr Mixology is a digital tool I built for beverage R&D and bar workflows. Evolving from the original CocktailCalc project, it combines cocktail calculation, batching, recipe management, advanced technique references, and personal recipe storage to make development more structured, repeatable, and manageable.",
+      toolFeat1:"Recipe ratios, dilution, and batch calculation",toolFeat2:"Technique database: clarification, fat-washing, foaming, infusion",toolFeat3:"Personal recipe storage, editing, and database management",toolCta:"Open Zephyr Mixology →",
+      contactKicker:"06 — Last Call / Contact",contactTitle:"Looking for brand education,<br>beverage consulting, or cocktail R&amp;D?",contactDesc:"Available for brand activation, tasting lectures, masterclass support, menu development, and cocktail R&D",
+      contactTag1:"Brand Activation",contactTag2:"Tasting Lecture",contactTag3:"Masterclass Support",contactTag4:"Menu Development",contactTag5:"Cocktail R&D"
+    }
+  };
+
+  const setLanguage=lang=>{
+    document.body.dataset.lang=lang;
+    document.documentElement.lang=lang==="zh"?"zh-TW":"en";
+    document.title=lang==="zh"?"Katrina Wong — 飲品顧問與酒類品牌行銷":"Katrina Wong — Beverage Consultant & Brand Marketing Specialist";
+    document.querySelectorAll("[data-i18n]").forEach(el=>{el.textContent=copy[lang][el.dataset.i18n]||el.textContent;});
+    document.querySelectorAll("[data-i18n-html]").forEach(el=>{el.innerHTML=copy[lang][el.dataset.i18nHtml]||el.innerHTML;});
+    document.querySelectorAll("[data-lang-btn]").forEach(btn=>btn.classList.toggle("active",btn.dataset.langBtn===lang));
+  };
+
+  document.querySelectorAll("[data-lang-btn]").forEach(btn=>btn.addEventListener("click",()=>setLanguage(btn.dataset.langBtn)));
+  setLanguage("en");
+
   const obs=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');});},{threshold:.12});
   document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 </script>
