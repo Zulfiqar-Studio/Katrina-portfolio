@@ -176,17 +176,45 @@
 
   /* EXPERTISE */
   #expertise{background:var(--bg2);}
-  .expertise-grid{margin-top:50px;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);}
-  .expertise-card{background:linear-gradient(180deg,rgba(34,21,13,.92),rgba(23,16,11,.96));padding:30px 26px;min-height:220px;}
-  .expertise-card .idx{font-family:'Fraunces',serif;font-style:italic;font-size:20px;color:var(--amber-l);margin-bottom:20px;display:block;}
-  .expertise-card h3{font-family:'Fraunces','Noto Serif TC',serif;font-size:24px;font-weight:700;line-height:1.15;margin-bottom:12px;}
-  .expertise-card .zh{font-family:'Noto Serif TC',serif;color:var(--tan);font-size:14px;margin-bottom:18px;}
-  .expertise-card p{font-size:13.5px;line-height:1.78;color:var(--tan-d);font-weight:500;}
-  @media(max-width:920px){.expertise-grid{grid-template-columns:repeat(2,1fr);}}
+  .expertise-tabs{margin-top:48px;display:grid;grid-template-columns:minmax(230px,.38fr) minmax(0,1fr);gap:1px;background:rgba(240,183,95,.16);border:1px solid rgba(240,183,95,.16);}
+  .expertise-tab-list{display:flex;flex-direction:column;background:rgba(14,10,7,.96);}
+  .expertise-tab{display:grid;grid-template-columns:34px 1fr;gap:14px;width:100%;min-height:82px;padding:18px 20px;border:0;border-bottom:1px solid rgba(240,183,95,.14);background:transparent;color:var(--cream);text-align:left;cursor:pointer;transition:background .2s,color .2s;}
+  .expertise-tab:last-child{border-bottom:0;}
+  .expertise-tab:hover{background:rgba(240,183,95,.06);}
+  .expertise-tab.active{background:linear-gradient(90deg,rgba(191,107,34,.24),rgba(255,255,255,.025));}
+  .expertise-tab .num{font-family:'Fraunces',serif;font-style:italic;font-size:18px;color:var(--amber-l);}
+  .expertise-tab .tab-main{display:block;font-family:'Barlow Condensed','Manrope',sans-serif;font-size:16px;letter-spacing:.12em;text-transform:uppercase;color:var(--cream);line-height:1.15;}
+  .expertise-tab .tab-sub{display:block;margin-top:7px;font-family:'Noto Serif TC',serif;font-size:13px;line-height:1.5;color:var(--tan);}
+  .expertise-panel-wrap{background:linear-gradient(135deg,rgba(34,21,13,.94),rgba(18,13,9,.98));min-height:360px;}
+  .expertise-panel{display:none;padding:46px 48px;}
+  .expertise-panel.active{display:grid;grid-template-columns:minmax(0,.8fr) minmax(190px,.32fr);gap:42px;align-items:end;}
+  .expertise-panel .idx{font-family:'Fraunces',serif;font-style:italic;font-size:28px;color:var(--amber-l);margin-bottom:26px;display:block;}
+  .expertise-panel h3{font-family:'Fraunces','Noto Serif TC',serif;font-size:38px;font-weight:720;line-height:1.05;margin-bottom:14px;color:var(--cream);}
+  .expertise-panel .zh{font-family:'Noto Serif TC',serif;color:var(--tan);font-size:15px;margin-bottom:22px;}
+  .expertise-panel p{font-size:15px;line-height:1.82;color:var(--tan-d);font-weight:500;max-width:680px;}
+  .expertise-panel-aside{border-left:1px solid rgba(240,183,95,.16);padding-left:26px;}
+  .expertise-panel-aside b{display:block;font-family:'Barlow Condensed','Manrope',sans-serif;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--brass);font-weight:500;margin-bottom:12px;}
+  .expertise-panel-aside span{display:block;font-size:13px;line-height:1.7;color:var(--tan-d);}
+  @media(max-width:920px){
+    .expertise-tabs{grid-template-columns:1fr;}
+    .expertise-tab-list{display:grid;grid-template-columns:repeat(2,1fr);}
+    .expertise-tab:nth-child(2){border-right:0;}
+    .expertise-tab{border-right:1px solid rgba(240,183,95,.14);}
+    .expertise-panel.active{grid-template-columns:1fr;}
+    .expertise-panel-aside{border-left:0;border-top:1px solid rgba(240,183,95,.16);padding:20px 0 0;}
+  }
   @media(max-width:620px){
-    .expertise-grid{display:grid;grid-template-columns:1fr;gap:12px;background:transparent;margin:32px 0 0;padding:0;overflow:visible;scroll-snap-type:none;}
-    .expertise-card{width:100%;min-height:0;border:1px solid rgba(240,183,95,.16);padding:24px 20px;}
-    .expertise-card h3{font-size:23px;}
+    .expertise-tabs{margin-top:30px;display:block;background:transparent;border:0;}
+    .expertise-tab-list{display:flex;flex-direction:row;gap:8px;overflow-x:auto;background:transparent;padding-bottom:10px;scrollbar-width:none;}
+    .expertise-tab-list::-webkit-scrollbar{display:none;}
+    .expertise-tab{flex:0 0 76%;grid-template-columns:28px 1fr;min-height:88px;border:1px solid rgba(240,183,95,.16);padding:15px 16px;background:rgba(16,11,7,.82);}
+    .expertise-tab .tab-main{font-size:14px;letter-spacing:.1em;}
+    .expertise-tab .tab-sub{font-size:12.5px;}
+    .expertise-panel-wrap{min-height:0;border:1px solid rgba(240,183,95,.16);}
+    .expertise-panel{padding:26px 20px;}
+    .expertise-panel h3{font-size:28px;}
+    .expertise-panel p{font-size:13.5px;line-height:1.72;}
+    .expertise-panel .idx{font-size:22px;margin-bottom:18px;}
   }
 
   /* WORKS */
@@ -496,31 +524,59 @@
 <section class="section" id="expertise">
   <div class="sec-head reveal"><span class="sec-eyebrow" data-i18n="expertiseEyebrow">02 — Expertise</span><span class="sec-line"></span></div>
   <h2 class="sec-title reveal"><span data-i18n="expertiseTitle">What I Do</span><span class="zh" data-i18n="expertiseTitleZh">專業能力</span></h2>
-  <div class="expertise-grid">
-    <article class="expertise-card reveal">
-      <span class="idx">01</span>
-      <h3>Brand Marketing</h3>
-      <p class="zh" data-i18n="expertise1Sub">品牌推廣與通路合作</p>
-      <p data-i18n="expertise1Body">負責國際烈酒品牌推廣、餐飲通路經營、行銷活動企劃與專業賽事執行，讓產品從品牌語言轉化為市場可以參與的體驗。</p>
-    </article>
-    <article class="expertise-card reveal">
-      <span class="idx">02</span>
-      <h3>Beverage Consulting</h3>
-      <p class="zh" data-i18n="expertise2Sub">飲品研發與顧問</p>
-      <p data-i18n="expertise2Body">結合吧台實務、風味設計、成本意識與特殊技法，協助餐飲場域建立可複製、可訓練、可銷售的飲品系統。</p>
-    </article>
-    <article class="expertise-card reveal">
-      <span class="idx">03</span>
-      <h3>Brand Education</h3>
-      <p class="zh" data-i18n="expertise3Sub">品酒講授與雙語支援</p>
-      <p data-i18n="expertise3Body">擔任品酒會講師，提供產品教育、品飲引導、品牌故事詮釋，並支援外國講師於大師班與訓練場合的口譯溝通。</p>
-    </article>
-    <article class="expertise-card reveal">
-      <span class="idx">04</span>
-      <h3>Digital Systems</h3>
-      <p class="zh" data-i18n="expertise4Sub">配方工具與資料庫</p>
-      <p data-i18n="expertise4Body">建立 Zephyr Mixology 與酒譜資料庫，整理配方計算、批量換算、特殊技法與個人酒譜，讓飲品研發流程更標準化。</p>
-    </article>
+  <div class="expertise-tabs reveal" data-tab-group="expertise">
+    <div class="expertise-tab-list" role="tablist" aria-label="Expertise topics">
+      <button class="expertise-tab active" type="button" role="tab" aria-selected="true" aria-controls="expertise-brand" data-tab-target="expertise-brand">
+        <span class="num">01</span><span><span class="tab-main">Brand Activation</span><span class="tab-sub">品牌推廣與通路合作</span></span>
+      </button>
+      <button class="expertise-tab" type="button" role="tab" aria-selected="false" aria-controls="expertise-lecture" data-tab-target="expertise-lecture">
+        <span class="num">02</span><span><span class="tab-main">Tasting Lecture</span><span class="tab-sub">品酒會講師</span></span>
+      </button>
+      <button class="expertise-tab" type="button" role="tab" aria-selected="false" aria-controls="expertise-interpretation" data-tab-target="expertise-interpretation">
+        <span class="num">03</span><span><span class="tab-main">Interpretation</span><span class="tab-sub">外國講師口譯</span></span>
+      </button>
+      <button class="expertise-tab" type="button" role="tab" aria-selected="false" aria-controls="expertise-rd" data-tab-target="expertise-rd">
+        <span class="num">04</span><span><span class="tab-main">Cocktail R&amp;D</span><span class="tab-sub">調酒研發與顧問</span></span>
+      </button>
+    </div>
+    <div class="expertise-panel-wrap">
+      <article class="expertise-panel active" id="expertise-brand" role="tabpanel">
+        <div>
+          <span class="idx">01</span>
+          <h3>Brand Marketing</h3>
+          <p class="zh" data-i18n="expertise1Sub">品牌推廣與通路合作</p>
+          <p data-i18n="expertise1Body">負責國際烈酒品牌推廣、餐飲通路經營、行銷活動企劃與專業賽事執行，讓產品從品牌語言轉化為市場可以參與的體驗。</p>
+        </div>
+        <div class="expertise-panel-aside"><b>Use Case</b><span data-i18n="expertiseUse1">Trade activation, venue communication, brand education, and market-facing events.</span></div>
+      </article>
+      <article class="expertise-panel" id="expertise-lecture" role="tabpanel" hidden>
+        <div>
+          <span class="idx">02</span>
+          <h3>Brand Education</h3>
+          <p class="zh" data-i18n="expertise3Sub">品酒講授與雙語支援</p>
+          <p data-i18n="expertise3Body">擔任品酒會講師，提供產品教育、品飲引導、品牌故事詮釋，並支援外國講師於大師班與訓練場合的口譯溝通。</p>
+        </div>
+        <div class="expertise-panel-aside"><b>Use Case</b><span data-i18n="expertiseUse2">Tasting flow, product storytelling, trade education, and guided sensory explanation.</span></div>
+      </article>
+      <article class="expertise-panel" id="expertise-interpretation" role="tabpanel" hidden>
+        <div>
+          <span class="idx">03</span>
+          <h3>Interpretation</h3>
+          <p class="zh" data-i18n="expertise5Sub">外國講師口譯</p>
+          <p data-i18n="expertise5Body">在外國講師的大師班與品牌訓練中，協助技術語言、品牌脈絡與現場互動被清楚傳達，讓課程能自然接上本地餐飲現場。</p>
+        </div>
+        <div class="expertise-panel-aside"><b>Use Case</b><span data-i18n="expertiseUse3">Masterclass interpretation, technical terms, speaker support, and live room communication.</span></div>
+      </article>
+      <article class="expertise-panel" id="expertise-rd" role="tabpanel" hidden>
+        <div>
+          <span class="idx">04</span>
+          <h3>Beverage Consulting</h3>
+          <p class="zh" data-i18n="expertise2Sub">飲品研發與顧問</p>
+          <p data-i18n="expertise2Body">結合吧台實務、風味設計、成本意識與特殊技法，協助餐飲場域建立可複製、可訓練、可銷售的飲品系統。</p>
+        </div>
+        <div class="expertise-panel-aside"><b>Use Case</b><span data-i18n="expertiseUse4">Menu development, cocktail R&D, cost logic, prep workflow, and training-ready recipes.</span></div>
+      </article>
+    </div>
   </div>
 </section>
 
@@ -930,6 +986,11 @@
       expertise2Sub:"飲品研發與顧問",expertise2Body:"我會同時看味道、成本、出杯速度和訓練難度。好的配方不是只在試飲時好喝，而是新進酒保也能穩定做出來。",
       expertise3Sub:"品酒講授與雙語支援",expertise3Body:"品酒會上，我負責把產品說到人聽得懂、喝得出差異。遇到外國講師的大師班，也能在技術詞和現場語氣之間做即時轉換。",
       expertise4Sub:"配方工具與資料庫",expertise4Body:"Zephyr Mixology 來自我自己的工作痛點：配方換算、批量、特殊技法和個人酒譜需要有地方整理，才不會每次都從零開始。",
+      expertise5Sub:"外國講師口譯",expertise5Body:"在外國講師的大師班與品牌訓練中，協助技術語言、品牌脈絡與現場互動被清楚傳達，讓課程能自然接上本地餐飲現場。",
+      expertiseUse1:"通路推廣、店家溝通、品牌教育與市場活動。",
+      expertiseUse2:"品飲流程、產品故事、通路訓練與風味引導。",
+      expertiseUse3:"大師班口譯、技術詞轉換、講師支援與現場溝通。",
+      expertiseUse4:"菜單研發、調酒開發、成本邏輯、備料流程與可訓練配方。",
       projectsEyebrow:"03 — Ledger / Projects",projectsTitle:"Selected Projects",projectsTitleZh:"職涯專案",
       project1Role:"業務行銷 / 品牌教育",project1Focus:"國際酒類品牌 / 餐飲通路",project1Output:"通路推廣 / 客戶教育",
       project1Body:"負責 Marie Brizard、Stoli 等國際酒類品牌的通路推廣、客戶溝通、活動企劃與品牌教育，連結產品特色與餐飲現場需求。",
@@ -983,6 +1044,11 @@
       expertise2Sub:"Cocktail R&D and consulting",expertise2Body:"A drink has to taste right, but it also has to move through service. I look at flavor, cost, prep time, and whether a new bartender can make it consistently after training.",
       expertise3Sub:"Tasting lectures and bilingual support",expertise3Body:"In tastings, I make the product easier to notice and remember. For visiting speakers, I bridge technical language and room tone so the class still feels natural.",
       expertise4Sub:"Recipe tools and databases",expertise4Body:"Zephyr Mixology came from my own workflow problem: calculations, batching, advanced techniques, and personal recipes needed one place to live instead of being rebuilt from scratch.",
+      expertise5Sub:"Guest speaker interpretation",expertise5Body:"For international masterclasses and brand training, I help technical language, brand context, and live interaction land clearly in the local hospitality room.",
+      expertiseUse1:"Trade activation, venue communication, brand education, and market-facing events.",
+      expertiseUse2:"Tasting flow, product storytelling, trade education, and guided sensory explanation.",
+      expertiseUse3:"Masterclass interpretation, technical terms, speaker support, and live room communication.",
+      expertiseUse4:"Menu development, cocktail R&D, cost logic, prep workflow, and training-ready recipes.",
       projectsEyebrow:"03 — Ledger / Projects",projectsTitle:"Selected Projects",projectsTitleZh:"Career Projects",
       project1Role:"Sales Marketing / Brand Education",project1Focus:"Spirits Portfolio / On-Premise Channels",project1Output:"Trade Activation / Client Education",
       project1Body:"Manage on-premise activation, client communication, event planning, and brand education for international spirits portfolios including Marie Brizard and Stoli, connecting product identity with hospitality needs.",
@@ -1047,6 +1113,24 @@
   });
   document.querySelectorAll("nav.top .links a").forEach(link=>link.addEventListener("click",closeMenu));
   window.addEventListener("resize",()=>{if(window.innerWidth>720)closeMenu();});
+
+  document.addEventListener("click",event=>{
+    const tab=event.target.closest("[data-tab-target]");
+    if(!tab)return;
+    const group=tab.closest("[data-tab-group]");
+    if(!group)return;
+    const id=tab.dataset.tabTarget;
+    group.querySelectorAll("[data-tab-target]").forEach(item=>{
+      const on=item===tab;
+      item.classList.toggle("active",on);
+      item.setAttribute("aria-selected",String(on));
+    });
+    group.querySelectorAll("[role='tabpanel']").forEach(panel=>{
+      const on=panel.id===id;
+      panel.classList.toggle("active",on);
+      panel.hidden=!on;
+    });
+  });
 
   const hero=document.querySelector(".hero");
   const reduceMotion=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
