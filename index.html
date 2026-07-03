@@ -204,12 +204,13 @@
     .expertise-panel-aside{border-left:0;border-top:1px solid rgba(240,183,95,.16);padding:20px 0 0;}
   }
   @media(max-width:620px){
-    .expertise-tabs{margin-top:30px;display:block;background:transparent;border:0;}
-    .expertise-tab-list{display:flex;flex-direction:row;gap:8px;overflow-x:auto;background:transparent;padding-bottom:10px;scrollbar-width:none;}
-    .expertise-tab-list::-webkit-scrollbar{display:none;}
-    .expertise-tab{flex:0 0 76%;grid-template-columns:28px 1fr;min-height:88px;border:1px solid rgba(240,183,95,.16);padding:15px 16px;background:rgba(16,11,7,.82);}
-    .expertise-tab .tab-main{font-size:14px;letter-spacing:.1em;}
-    .expertise-tab .tab-sub{font-size:12.5px;}
+    .expertise-tabs{margin-top:30px;display:grid;grid-template-columns:88px minmax(0,1fr);gap:10px;background:transparent;border:0;}
+    .expertise-tab-list{display:flex;flex-direction:column;background:rgba(14,10,7,.82);border:1px solid rgba(240,183,95,.18);}
+    .expertise-tab{grid-template-columns:1fr;min-height:76px;border:0;border-bottom:1px solid rgba(240,183,95,.13);padding:10px 6px;background:transparent;text-align:center;}
+    .expertise-tab:last-child{border-bottom:0;}
+    .expertise-tab .num{font-size:14px;}
+    .expertise-tab .tab-main{font-size:10px;letter-spacing:.08em;line-height:1.12;}
+    .expertise-tab .tab-sub{display:none;}
     .expertise-panel-wrap{min-height:0;border:1px solid rgba(240,183,95,.16);}
     .expertise-panel{padding:26px 20px;}
     .expertise-panel h3{font-size:28px;}
@@ -260,7 +261,19 @@
 
   /* PROJECTS */
   #projects{background:var(--bg);}
+  .project-shell{margin-top:52px;display:grid;grid-template-columns:282px minmax(0,1fr);gap:24px;align-items:start;}
+  .project-filter{position:sticky;top:92px;border:1px solid rgba(240,183,95,.22);background:linear-gradient(180deg,rgba(32,20,11,.88),rgba(10,7,5,.74));box-shadow:0 22px 60px rgba(0,0,0,.34);backdrop-filter:blur(16px);overflow:hidden;}
+  .project-filter-title{height:64px;display:flex;align-items:center;padding:0 22px;border-bottom:1px solid rgba(240,183,95,.18);background:rgba(191,107,34,.14);font-family:'Barlow Condensed','Manrope',sans-serif;font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);}
+  .project-filter button{display:grid;grid-template-columns:48px 1fr;width:100%;min-height:86px;padding:0;border:0;border-bottom:1px solid rgba(240,183,95,.12);background:transparent;color:var(--cream);text-align:left;cursor:pointer;}
+  .project-filter button:last-child{border-bottom:0;}
+  .project-filter button.active{background:linear-gradient(90deg,rgba(191,107,34,.32),rgba(255,255,255,.03));}
+  .project-filter .num{display:grid;place-items:center;font-family:'Fraunces',serif;font-style:italic;font-size:19px;color:var(--amber-l);}
+  .project-filter .label{padding:18px 18px 16px 4px;border-left:1px solid rgba(240,183,95,.12);}
+  .project-filter b{display:block;font-family:'Barlow Condensed','Manrope',sans-serif;font-size:16px;line-height:1.1;letter-spacing:.12em;text-transform:uppercase;color:var(--cream);}
+  .project-filter span span{display:block;margin-top:7px;font-family:'Noto Serif TC',serif;font-size:12px;line-height:1.45;color:var(--tan);}
   .project-list{margin-top:52px;border-top:1px solid rgba(240,183,95,.22);}
+  .project-shell .project-list{margin-top:0;}
+  .project-list [data-project-key][hidden]{display:none!important;}
   .project-item{display:grid;grid-template-columns:180px 1fr 1fr;gap:34px;padding:34px 0;border-bottom:1px solid rgba(240,183,95,.16);align-items:start;}
   .project-mark{display:flex;flex-direction:column;gap:18px;}
   .project-mark img{width:100%;aspect-ratio:4/5;object-fit:cover;border:1px solid rgba(240,183,95,.16);filter:saturate(.82) contrast(1.05);background:var(--bg3);}
@@ -332,6 +345,14 @@
   .case-metric b{display:block;font-family:'Fraunces','Noto Serif TC',serif;font-size:25px;color:var(--cream);}
   .case-metric span{display:block;margin-top:5px;font-size:9px;line-height:1.45;letter-spacing:.08em;text-transform:uppercase;color:var(--tan-d);}
   @media(max-width:820px){
+    .project-shell{grid-template-columns:96px minmax(0,1fr);gap:10px;margin-top:34px;}
+    .project-filter{top:72px;}
+    .project-filter-title{height:44px;padding:0;justify-content:center;font-size:10px;letter-spacing:.18em;}
+    .project-filter button{grid-template-columns:1fr;min-height:74px;}
+    .project-filter .num{font-size:14px;padding-top:9px;}
+    .project-filter .label{padding:2px 6px 10px;border-left:0;text-align:center;}
+    .project-filter b{font-size:10px;letter-spacing:.08em;line-height:1.12;}
+    .project-filter span span{display:none;}
     .project-item{grid-template-columns:1fr;gap:18px;padding:32px 0;}
     .project-mark{gap:12px;}
     .project-mark img{aspect-ratio:16/10;max-height:260px;}
@@ -584,8 +605,19 @@
 <section class="section" id="projects">
   <div class="sec-head reveal"><span class="sec-eyebrow" data-i18n="projectsEyebrow">03 — Projects</span><span class="sec-line"></span></div>
   <h2 class="sec-title reveal"><span data-i18n="projectsTitle">Selected Projects</span><span class="zh" data-i18n="projectsTitleZh">職涯專案</span></h2>
+  <div class="project-shell reveal" data-project-group>
+    <aside class="project-filter" aria-label="Project categories">
+      <div class="project-filter-title">Ledger</div>
+      <button class="active" type="button" data-project-target="brand"><span class="num">01</span><span class="label"><b>Brand Work</b><span>品牌與通路</span></span></button>
+      <button type="button" data-project-target="judge"><span class="num">02</span><span class="label"><b>TBS System</b><span>評審系統</span></span></button>
+      <button type="button" data-project-target="chaoz"><span class="num">03</span><span class="label"><b>Chaoz Auto</b><span>銷量自動化</span></span></button>
+      <button type="button" data-project-target="event"><span class="num">04</span><span class="label"><b>TBS Event</b><span>活動籌備</span></span></button>
+      <button type="button" data-project-target="education"><span class="num">05</span><span class="label"><b>Education</b><span>講師與口譯</span></span></button>
+      <button type="button" data-project-target="consulting"><span class="num">06</span><span class="label"><b>Consulting</b><span>技術顧問</span></span></button>
+      <button type="button" data-project-target="concept"><span class="num">07</span><span class="label"><b>Concept</b><span>市場概念</span></span></button>
+    </aside>
   <div class="project-list">
-    <article class="project-item reveal">
+    <article class="project-item reveal" data-project-key="brand">
       <div class="project-mark">
         <p class="project-kicker">Brand Activation</p>
         <img src="assets/portfolio/project-lecture.jpg" alt="Brand education tasting lecture" loading="lazy">
@@ -600,7 +632,7 @@
       </div>
       <p data-i18n="project1Body">負責 Marie Brizard、Stoli 等國際酒類品牌的通路推廣、客戶溝通、活動企劃與品牌教育，連結產品特色與餐飲現場需求。</p>
     </article>
-    <article class="case-study reveal">
+    <article class="case-study reveal" data-project-key="judge" hidden>
       <div class="case-study-head">
         <p class="project-kicker">Digital Operations / Case Study</p>
         <span class="case-status" data-i18n="caseStatus">Live Prototype · 2026</span>
@@ -674,7 +706,7 @@
         </div>
       </div>
     </article>
-    <article class="case-study reveal">
+    <article class="case-study reveal" data-project-key="chaoz" hidden>
       <div class="case-study-head">
         <p class="project-kicker">Beverage Operations Automation</p>
         <span class="case-status" data-i18n="chaozStatus">Operational System · 2026</span>
@@ -748,7 +780,7 @@
         </div>
       </div>
     </article>
-    <article class="project-item reveal">
+    <article class="project-item reveal" data-project-key="event" hidden>
       <div class="project-mark">
         <p class="project-kicker">Competition &amp; Event</p>
         <img src="assets/portfolio/project-bar-team.jpg" alt="Bar team event in amber lighting" loading="lazy">
@@ -763,7 +795,7 @@
       </div>
       <p data-i18n="project2Body">參與 TBS 2026 專業大師班與決賽籌備，整合活動流程、品牌溝通、講師支援、專業內容傳遞與市場推廣。</p>
     </article>
-    <article class="project-item reveal">
+    <article class="project-item reveal" data-project-key="education" hidden>
       <div class="project-mark">
         <p class="project-kicker">Education</p>
         <img src="assets/portfolio/project-press-2.jpg" class="press-img" alt="Press clipping of bartending feature" loading="lazy">
@@ -778,7 +810,7 @@
       </div>
       <p data-i18n="project3Body">擔任品酒會講師，提供產品知識、品飲邏輯與調酒應用說明；同時支援外國講師口譯，協助專業內容被清楚傳遞。</p>
     </article>
-    <article class="project-item reveal">
+    <article class="project-item reveal" data-project-key="consulting" hidden>
       <div class="project-mark">
         <p class="project-kicker">Technical Consulting</p>
         <img src="assets/portfolio/zephyr-tech.jpg" alt="Zephyr Mixology technique database screen" loading="lazy">
@@ -793,7 +825,7 @@
       </div>
       <p data-i18n="project4Body">協助智能調酒設備導入市場，提供技術顧問、合作提案、操作教育與應用情境規劃，讓設備能對接吧台營運需求。</p>
     </article>
-    <article class="project-item reveal">
+    <article class="project-item reveal" data-project-key="concept" hidden>
       <div class="project-mark">
         <p class="project-kicker">Market Development</p>
         <img src="assets/portfolio/cocktail-rooibos.jpg" alt="Tea cocktail concept with warm bar styling" loading="lazy">
@@ -808,6 +840,7 @@
       </div>
       <p data-i18n="project5Body">開發立飲文化、茶調酒與概念型飲品體驗等新商業場景，探索酒類品牌在不同通路與生活型態中的可能性。</p>
     </article>
+  </div>
   </div>
 </section>
 
@@ -1129,6 +1162,22 @@
       const on=panel.id===id;
       panel.classList.toggle("active",on);
       panel.hidden=!on;
+    });
+  });
+
+  document.addEventListener("click",event=>{
+    const trigger=event.target.closest("[data-project-target]");
+    if(!trigger)return;
+    const group=trigger.closest("[data-project-group]");
+    if(!group)return;
+    const key=trigger.dataset.projectTarget;
+    group.querySelectorAll("[data-project-target]").forEach(item=>{
+      item.classList.toggle("active",item===trigger);
+    });
+    group.querySelectorAll("[data-project-key]").forEach(item=>{
+      const on=item.dataset.projectKey===key;
+      item.hidden=!on;
+      if(on)item.classList.add("in");
     });
   });
 
