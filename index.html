@@ -473,7 +473,12 @@
   /* reveal */
   .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s;}
   .reveal.in{opacity:1;transform:none;}
-  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+  .section-insert{position:relative;overflow:hidden;clip-path:inset(44px 0 0 0);transform:translateY(36px);opacity:.92;transition:clip-path .72s cubic-bezier(.2,.8,.18,1),transform .72s cubic-bezier(.2,.8,.18,1),opacity .5s ease;}
+  .section-insert.in{clip-path:inset(0 0 0 0);transform:none;opacity:1;}
+  .section-insert::before{content:"";position:absolute;z-index:1;inset:0;background:linear-gradient(180deg,rgba(240,183,95,.16),rgba(13,9,6,0) 34%);transform:translateY(-100%);transition:transform .72s cubic-bezier(.2,.8,.18,1);pointer-events:none;}
+  .section-insert.in::before{transform:translateY(100%);}
+  .section-insert > *{position:relative;z-index:2;}
+  @media(prefers-reduced-motion:reduce){.reveal,.section-insert{opacity:1;transform:none;clip-path:none;transition:none;}.section-insert::before{display:none;}}
 </style>
 </head>
 <body data-lang="en">
@@ -524,7 +529,7 @@
 </header>
 
 <!-- ABOUT -->
-<section class="section" id="about">
+<section class="section section-insert" id="about">
   <div class="sec-head reveal"><span class="sec-eyebrow" data-i18n="aboutEyebrow">01 — About</span><span class="sec-line"></span></div>
   <h2 class="sec-title reveal"><span data-i18n="aboutTitle">The Profile</span><span class="zh" data-i18n="aboutTitleZh">關於我</span></h2>
   <div class="about-grid">
@@ -548,7 +553,7 @@
 </section>
 
 <!-- EXPERTISE -->
-<section class="section" id="expertise">
+<section class="section section-insert" id="expertise">
   <div class="sec-head reveal"><span class="sec-eyebrow" data-i18n="expertiseEyebrow">02 — Expertise</span><span class="sec-line"></span></div>
   <h2 class="sec-title reveal"><span data-i18n="expertiseTitle">What I Do</span><span class="zh" data-i18n="expertiseTitleZh">專業能力</span></h2>
   <div class="expertise-tabs reveal" data-tab-group="expertise">
@@ -608,7 +613,7 @@
 </section>
 
 <!-- PROJECTS -->
-<section class="section" id="projects">
+<section class="section section-insert" id="projects">
   <div class="sec-head reveal"><span class="sec-eyebrow" data-i18n="projectsEyebrow">03 — Projects</span><span class="sec-line"></span></div>
   <h2 class="sec-title reveal"><span data-i18n="projectsTitle">Selected Projects</span><span class="zh" data-i18n="projectsTitleZh">職涯專案</span></h2>
   <div class="project-shell reveal" data-project-group>
@@ -851,7 +856,7 @@
 </section>
 
 <!-- WORKS -->
-<section class="section" id="works">
+<section class="section section-insert" id="works">
   <div class="sec-head reveal"><span class="sec-eyebrow" data-i18n="cocktailsEyebrow">04 — Cocktails</span><span class="sec-line"></span></div>
   <h2 class="sec-title reveal"><span data-i18n="cocktailsTitle">Selected Cocktails</span><span class="zh" data-i18n="cocktailsTitleZh">代表作品</span></h2>
   <div class="works-grid">
@@ -963,7 +968,7 @@
 </section>
 
 <!-- TOOLS -->
-<section class="section" id="tools">
+<section class="section section-insert" id="tools">
   <div class="sec-head reveal"><span class="sec-eyebrow" data-i18n="toolsEyebrow">05 — Tools</span><span class="sec-line"></span></div>
   <h2 class="sec-title reveal"><span data-i18n="toolsTitle">Built for Beverage Work</span><span class="zh" data-i18n="toolsTitleZh">工具開發</span></h2>
   <div class="tool-card reveal">
@@ -989,7 +994,7 @@
 </section>
 
 <!-- CONTACT -->
-<section id="contact">
+<section class="section-insert" id="contact">
   <p class="contact-kicker" data-i18n="contactKicker">06 — Last Call / Contact</p>
   <p class="contact-zh reveal" data-i18n-html="contactTitle">正在尋找品牌教育、飲品顧問<br>或調酒研發合作？</p>
   <p class="contact-en reveal" data-i18n="contactDesc">Available for brand activation, tasting lectures, masterclass support, menu development, and cocktail R&amp;D</p>
@@ -1201,7 +1206,7 @@
   window.addEventListener("resize",updateDoor);
 
   const obs=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');});},{threshold:.12});
-  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+  document.querySelectorAll('.reveal,.section-insert').forEach(el=>obs.observe(el));
 </script>
 </body>
 </html>
